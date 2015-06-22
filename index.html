@@ -1,0 +1,886 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Yedeying&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Yedeying&apos;s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yedeying's blog">
+<meta property="og:url" content="http://yedeying999.github.io/index.html">
+<meta property="og:site_name" content="Yedeying's blog">
+<meta property="og:description" content="Yedeying&apos;s blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yedeying's blog">
+<meta name="twitter:description" content="Yedeying&apos;s blog">
+  
+    <link rel="alternative" href="/atom.xml" title="Yedeying&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Yedeying&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yedeying999.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-css3圆自旋动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/05/css3圆自旋动画/" class="article-date">
+  <time datetime="2015-02-05T05:34:15.000Z" itemprop="datePublished">2015-02-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/05/css3圆自旋动画/">css3圆自旋动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>演示地址(只适配了chrome)：<a href="http://colorful.coding.io" target="_blank" rel="external">http://colorful.coding.io</a><br>原图：</p>
+<p><img src="http://7u2mpp.com1.z0.glb.clouddn.com/colorful.gif" alt="http://7u2mpp.com1.z0.glb.clouddn.com/colorful.gif"></p>
+<h1 id="CSS3_圆自旋动画">CSS3 圆自旋动画</h1><blockquote>
+<p>不要吐嘈，真不知怎么起名好:sweat_smile:</p>
+</blockquote>
+<h2 id="前言">前言</h2><p>再来一次，又是网上见到一个动画，挺漂亮的，接着折腾的思维就冒出来了。自己可不可以把它给画一遍呢，canvas?还是css3?感觉css3是个很大的挑战(当然canvas也是，都还没敢碰)</p>
+<p>就这样，又开始了新一轮的折腾之旅。</p>
+<h2 id="分析动画及开工">分析动画及开工</h2><p>一开始的思路呢，当然就是先把小圆给搭起来啦，还好有之前做<a href="http://yedeying999.github.io/2014/09/02/css3-yuan-nei-huan-dong-hua/">这个</a>的经验。</p>
+<p>截图算了一下，小圆个数是24，那也就是每四分之一个大圆就有六个小圆，那好，定个大圆半径，定个小圆半径，就开工了。(所以就是此该的理所当然才导致了之后的重新弄过:sob:)</p>
+<p>先搭个html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- emmet: .board&gt;.circle*24+.center --&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"board"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"circle"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"circle"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"circle"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"center"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span> <span class="comment">&lt;!-- 这个是我自己弄的用来定位圆心的小东西 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>css生成器上，熟悉scss，然后就折腾成这样了<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$num</span><span class="value">: <span class="number">24</span>;</span> <span class="comment">// 个数，固定24，乱写后果自负</span></span><br><span class="line"><span class="variable">$width</span><span class="value">: <span class="number">400px</span>;</span> <span class="comment">// 整个活动区域大小</span></span><br><span class="line"><span class="variable">$outer-radius</span><span class="value">: <span class="number">140px</span>;</span> <span class="comment">// 大圆半径</span></span><br><span class="line"><span class="variable">$inner-radius</span><span class="value">: <span class="number">50px</span>;</span> <span class="comment">// 旋转半径</span></span><br><span class="line"><span class="variable">$circle-radius</span><span class="value">: <span class="number">20px</span>;</span> <span class="comment">// 小圆半径</span></span><br><span class="line"><span class="variable">$center-xpos</span><span class="value">: <span class="variable">$width</span> / <span class="number">2</span>;</span> <span class="comment">// 中心点x</span></span><br><span class="line"><span class="variable">$center-ypos</span><span class="value">: <span class="variable">$width</span> / <span class="number">2</span>;</span> <span class="comment">// 中心点y</span></span><br><span class="line"><span class="variable">$base-xpos</span><span class="value">: <span class="variable">$center-xpos</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$base-ypos</span><span class="value">: <span class="variable">$center-ypos</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="comment">// 绝对居中定位</span></span><br><span class="line">%abs-<span class="value">center</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">margin</span><span class="value">: auto;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">right</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">top</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">bottom</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.board</span> &#123;</span><br><span class="line">  <span class="at_rule">@<span class="keyword">extend</span> %abs-center;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="variable">$width</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="variable">$width</span>;</span></span><br><span class="line">  <span class="attribute">border</span><span class="value">: <span class="number">1px</span> solid <span class="hexcolor">#ccc</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">top</span><span class="value">: <span class="variable">$center-ypos</span>;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="variable">$center-xpos</span>;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="number">1px</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="number">1px</span>;</span></span><br><span class="line">  <span class="attribute">background-color</span><span class="value">: <span class="hexcolor">#000</span>;</span></span><br><span class="line">  <span class="attribute">z-index</span><span class="value">: <span class="number">1</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// for生成每个小圆的位置</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">for</span> <span class="variable">$i</span><span class="preprocessor"> from</span><span class="preprocessor"> 1</span><span class="preprocessor"> through</span> <span class="variable">$num</span> &#123;</span></span><br><span class="line">  <span class="variable">$no</span><span class="value">: <span class="variable">$i</span> - <span class="number">1</span>;</span></span><br><span class="line">  <span class="variable">$angle</span><span class="value">: (<span class="number">360</span> / <span class="variable">$num</span> * (<span class="variable">$no</span> + <span class="number">0.5</span>)) % <span class="number">360</span>;</span></span><br><span class="line">  <span class="class">.circle</span><span class="pseudo">:nth-child</span>(#&#123;<span class="variable">$i</span>&#125;) &#123;</span><br><span class="line">    <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">    <span class="attribute">top</span><span class="value">: <span class="variable">$base-ypos</span> + <span class="variable">$outer-radius</span> * <span class="function">sin</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>);</span></span><br><span class="line">    <span class="attribute">left</span><span class="value">: <span class="variable">$base-xpos</span> + <span class="variable">$outer-radius</span> * <span class="function">cos</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>);</span></span><br><span class="line">    <span class="attribute">width</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line">    <span class="attribute">height</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line">    <span class="attribute">border-radius</span><span class="value">: <span class="number">50%</span>;</span></span><br><span class="line">    <span class="comment">// 颜色用色相递增法实现渐变，前几天刚学到的嘻嘻</span></span><br><span class="line">    <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">180</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果出来了，挺漂亮，棒棒哒。至此，代码为circle分支</p>
+<p><img src="http://7u2mpp.com1.z0.glb.clouddn.com/pic1.jpg" alt="first version"></p>
+<h2 id="接着，死了">接着，死了</h2><p>开始研究它的动作，然后研究了半天，结果发现自己天真了:scream:</p>
+<p>它的动作分为以下几点：</p>
+<ul>
+<li>每个小圆和它的下三个或上三个是同一组，中间隔了两个，每个圆只属于一组</li>
+<li>同一组的两个圆会在轮到它们转时绕两点之间中心旋转，且时针方向一致，为顺时针</li>
+<li>同一组的圆在旋转时，其对应颜色会相互过渡成对方的</li>
+</ul>
+<p>现在问题来了，CSS3可以旋转，可以我现在以谁为圆心？没有！好吧，要改html结构了。</p>
+<p>深思熟虑一会后，决定给每组的圆中间加条棍，然后再让棍来旋转就好，所以html变成了这样：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- emmet: .board&gt;(.box*12&gt;.circle*2)+.center --&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"board"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"circle"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"circle"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"circle"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"circle"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"center"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>接下来css就难做了，主要是尺寸问题。</p>
+<h3 id="尺寸计算">尺寸计算</h3><p>刚刚的小圆布局已经要扔掉了，不过有些尺寸变量还是可以留着的。</p>
+<p>木棍的个数是小圆个数的1/2，然后旋转角度也按12份平分一个圆，宽度多少没问题，我选择容纳一个圆的直径的宽度，另外还有木棍中点到原点距离以及木棍长度。木棍长度可以把两小圆圆心连一条线到原点，这个度数应该是<code>45deg</code>(刚开始不知道为什么脑抽了算成<code>60</code>，然后，错了好久:sob:)，这样可以算出这两个值。</p>
+<p>分析完了，看代码：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$num</span><span class="value">: <span class="number">24</span>;</span></span><br><span class="line"><span class="variable">$width</span><span class="value">: <span class="number">400px</span>;</span></span><br><span class="line"><span class="variable">$outer-radius</span><span class="value">: <span class="number">140px</span>;</span></span><br><span class="line"><span class="variable">$inner-radius</span><span class="value">: <span class="number">50px</span>;</span></span><br><span class="line"><span class="variable">$circle-radius</span><span class="value">: <span class="number">20px</span>;</span></span><br><span class="line"><span class="variable">$box-num</span><span class="value">: <span class="variable">$num</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$center-xpos</span><span class="value">: <span class="variable">$width</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$center-ypos</span><span class="value">: <span class="variable">$width</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$box-width</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line"><span class="variable">$box-height</span><span class="value">: <span class="variable">$outer-radius</span>;</span></span><br><span class="line"><span class="variable">$base-xpos</span><span class="value">: <span class="variable">$center-xpos</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$base-ypos</span><span class="value">: <span class="variable">$center-ypos</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line">%abs-<span class="value">center</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">margin</span><span class="value">: auto;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">right</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">top</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">bottom</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.board</span> &#123;</span><br><span class="line">  <span class="at_rule">@<span class="keyword">extend</span> %abs-center;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="variable">$width</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="variable">$width</span>;</span></span><br><span class="line">  <span class="attribute">border</span><span class="value">: <span class="number">1px</span> solid <span class="hexcolor">#ccc</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">top</span><span class="value">: <span class="variable">$center-ypos</span>;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="variable">$center-xpos</span>;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="number">1px</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="number">1px</span>;</span></span><br><span class="line">  <span class="attribute">background-color</span><span class="value">: <span class="hexcolor">#000</span>;</span></span><br><span class="line">  <span class="attribute">z-index</span><span class="value">: <span class="number">1</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.circle</span><span class="pseudo">:first-child</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line">  <span class="attribute">border-radius</span><span class="value">: <span class="number">50%</span>;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">top</span><span class="value">: <span class="number">0</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line">  <span class="comment">// background-color: red;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.circle</span><span class="pseudo">:last-child</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line">  <span class="attribute">border-radius</span><span class="value">: <span class="number">50%</span>;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">bottom</span><span class="value">: <span class="number">0</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line">  <span class="comment">// background-color: blue;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">for</span> <span class="variable">$i</span><span class="preprocessor"> from</span><span class="preprocessor"> 0</span><span class="preprocessor"> to</span> <span class="variable">$num</span> &#123;</span></span><br><span class="line">  <span class="variable">$angle</span><span class="value">: (<span class="number">360</span> / <span class="variable">$num</span> * (<span class="variable">$i</span> + <span class="number">0.5</span>)) % <span class="number">360</span>;</span></span><br><span class="line">  <span class="variable">$offset-angle</span><span class="value">: <span class="variable">$angle</span> + (<span class="number">360</span> / <span class="variable">$num</span> * <span class="number">3</span>);</span></span><br><span class="line">  <span class="at_rule">@-webkit-keyframes<span class="preprocessor"> rotate</span>#&#123;</span><span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">      <span class="attribute">top</span><span class="value">: <span class="variable">$base-ypos</span> + <span class="variable">$outer-radius</span> * <span class="function">sin</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>);</span></span><br><span class="line">      <span class="attribute">left</span><span class="value">: <span class="variable">$base-xpos</span> + <span class="variable">$outer-radius</span> * <span class="function">cos</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>);</span></span><br><span class="line">    &#125; 16<span class="class">.666667</span>%, 83<span class="class">.333333</span>% &#123;</span><br><span class="line">      <span class="attribute">top</span><span class="value">: <span class="variable">$base-ypos</span> + <span class="variable">$outer-radius</span> * <span class="function">sin</span>(<span class="variable">$offset-angle</span> * <span class="function">pi</span>() / <span class="number">180</span>);</span></span><br><span class="line">      <span class="attribute">left</span><span class="value">: <span class="variable">$base-xpos</span> + <span class="variable">$outer-radius</span> * <span class="function">cos</span>(<span class="variable">$offset-angle</span> * <span class="function">pi</span>() / <span class="number">180</span>);</span></span><br><span class="line">    &#125; 100% &#123;</span><br><span class="line">      <span class="attribute">top</span><span class="value">: <span class="variable">$base-ypos</span> + <span class="variable">$outer-radius</span> * <span class="function">sin</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>);</span></span><br><span class="line">      <span class="attribute">left</span><span class="value">: <span class="variable">$base-xpos</span> + <span class="variable">$outer-radius</span> * <span class="function">cos</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">for</span> <span class="variable">$i</span><span class="preprocessor"> from</span><span class="preprocessor"> 1</span><span class="preprocessor"> through</span> <span class="variable">$box-num</span> &#123;</span></span><br><span class="line">  <span class="variable">$no</span><span class="value">: <span class="variable">$i</span> - <span class="number">1</span>;</span></span><br><span class="line">  <span class="variable">$angle</span><span class="value">: <span class="number">360</span> / <span class="variable">$box-num</span> * <span class="variable">$no</span>;</span></span><br><span class="line">  <span class="class">.box</span><span class="pseudo">:nth-child</span>(#&#123;<span class="variable">$i</span>&#125;) &#123;</span><br><span class="line">    <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">    <span class="attribute">background-color</span><span class="value">: <span class="function">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">3</span>);</span></span><br><span class="line">    <span class="attribute">left</span><span class="value">: <span class="variable">$center-xpos</span> + <span class="variable">$outer-radius</span> * <span class="function">cos</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>) - <span class="variable">$box-width</span> / <span class="number">2</span>;</span></span><br><span class="line">    <span class="attribute">top</span><span class="value">: <span class="variable">$center-ypos</span> + <span class="variable">$outer-radius</span> * <span class="function">sin</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>) - <span class="variable">$box-height</span> / <span class="number">2</span>;</span></span><br><span class="line">    <span class="attribute">width</span><span class="value">: <span class="variable">$box-width</span>;</span></span><br><span class="line">    <span class="attribute">height</span><span class="value">: <span class="variable">$box-height</span>;</span></span><br><span class="line">    -webkit-<span class="attribute">transform</span><span class="value">: <span class="function">rotate</span>((<span class="variable">$angle</span>) % <span class="number">360</span> + deg);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后这是木棍的图，挺漂亮的有木有。至此，代码为rect分支</p>
+<p><img src="http://7u2mpp.com1.z0.glb.clouddn.com/pic2.jpg" alt="rect"></p>
+<h2 id="添加动画">添加动画</h2><p>动画有几个值得一提的点：</p>
+<ul>
+<li>木棍是轮流旋转的，animation-delay要控制为 <code>总时间 * 当前木棍序号 / 总木棍序号</code></li>
+<li>关键帧要注意，经观察，转动时间于不转时间大概为 <code>1:2</code>，因此定了<code>0----1/6====1/2----2/3====1</code>作为关键关键帧(-表动=表静)</li>
+<li>需要变换的属性有木棍旋转角度、小圆颜色、小圆旋转轨迹</li>
+<li>因小圆旋转轨迹是个圆，干脆把木棍拉宽，然后它就成了一个圆饼木棍哈哈，以其边框作为轨迹</li>
+<li>timing-function需要调一下，我调得不是很好，也和原图差得比较大</li>
+</ul>
+<p>不废话了，如下：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$num</span><span class="value">: <span class="number">24</span>;</span></span><br><span class="line"><span class="variable">$width</span><span class="value">: <span class="number">400px</span>;</span></span><br><span class="line"><span class="variable">$outer-radius</span><span class="value">: <span class="number">140px</span>;</span></span><br><span class="line"><span class="variable">$inner-radius</span><span class="value">: <span class="number">50px</span>;</span></span><br><span class="line"><span class="variable">$circle-radius</span><span class="value">: <span class="number">20px</span>;</span></span><br><span class="line"><span class="variable">$box-num</span><span class="value">: <span class="variable">$num</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$center-xpos</span><span class="value">: <span class="variable">$width</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$center-ypos</span><span class="value">: <span class="variable">$width</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$box-width</span><span class="value">: <span class="variable">$outer-radius</span> * <span class="function">sin</span>(<span class="function">pi</span>() * <span class="number">3</span> / <span class="variable">$num</span>) * <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$box-height</span><span class="value">: <span class="variable">$box-width</span>;</span></span><br><span class="line"><span class="variable">$box-radius</span><span class="value">: <span class="variable">$outer-radius</span> * <span class="function">cos</span>(<span class="function">pi</span>() * <span class="number">3</span> / <span class="variable">$num</span>);</span></span><br><span class="line"><span class="variable">$base-xpos</span><span class="value">: <span class="variable">$center-xpos</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line"><span class="variable">$base-ypos</span><span class="value">: <span class="variable">$center-ypos</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line">%abs-<span class="value">center</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">margin</span><span class="value">: auto;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">right</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">top</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">  <span class="attribute">bottom</span><span class="value">: <span class="number">0</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.origin</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span><span class="value">: center;</span></span><br><span class="line">  <span class="attribute">margin-top</span><span class="value">: <span class="number">20px</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.board</span> &#123;</span><br><span class="line">  <span class="at_rule">@<span class="keyword">extend</span> %abs-center;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="variable">$width</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="variable">$width</span>;</span></span><br><span class="line">  <span class="attribute">border</span><span class="value">: <span class="number">1px</span> solid <span class="hexcolor">#ccc</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">top</span><span class="value">: <span class="variable">$center-ypos</span>;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="variable">$center-xpos</span>;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="number">1px</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="number">1px</span>;</span></span><br><span class="line">  <span class="attribute">background-color</span><span class="value">: <span class="hexcolor">#000</span>;</span></span><br><span class="line">  <span class="attribute">z-index</span><span class="value">: <span class="number">1</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="variable">$box-width</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="variable">$box-height</span>;</span></span><br><span class="line">  <span class="attribute">border-radius</span><span class="value">: <span class="number">50%</span>;</span></span><br><span class="line">  <span class="attribute">border-width</span><span class="value">: <span class="number">1px</span>;</span></span><br><span class="line">  <span class="attribute">border-style</span><span class="value">: solid;</span></span><br><span class="line">  -webkit-<span class="attribute">animation-duration</span><span class="value">: <span class="number">10s</span>;</span></span><br><span class="line">  -webkit-<span class="attribute">animation-iteration-count</span><span class="value">: infinite;</span></span><br><span class="line">  -webkit-<span class="attribute">animation-timing-function</span><span class="value">: <span class="function">cubic-bezier</span>(<span class="number">0.5</span>, <span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.circle</span> &#123;</span><br><span class="line">  <span class="attribute">position</span><span class="value">: absolute;</span></span><br><span class="line">  <span class="attribute">width</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line">  <span class="attribute">height</span><span class="value">: <span class="variable">$circle-radius</span>;</span></span><br><span class="line">  <span class="attribute">border-radius</span><span class="value">: <span class="number">50%</span>;</span></span><br><span class="line">  <span class="attribute">left</span><span class="value">: <span class="variable">$box-width</span> / <span class="number">2</span> - <span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line">  -webkit-<span class="attribute">animation-duration</span><span class="value">: <span class="number">10s</span>;</span></span><br><span class="line">  -webkit-<span class="attribute">animation-iteration-count</span><span class="value">: infinite;</span></span><br><span class="line">  -webkit-<span class="attribute">animation-timing-function</span><span class="value">: <span class="function">cubic-bezier</span>(<span class="number">0.5</span>, <span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">1.0</span>);</span></span><br><span class="line">  &amp;<span class="pseudo">:first-child</span> &#123;</span><br><span class="line">    <span class="attribute">top</span><span class="value">: -<span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="pseudo">:last-child</span> &#123;</span><br><span class="line">    <span class="attribute">bottom</span><span class="value">: -<span class="variable">$circle-radius</span> / <span class="number">2</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">for</span> <span class="variable">$i</span><span class="preprocessor"> from</span><span class="preprocessor"> 0</span><span class="preprocessor"> to</span> <span class="variable">$box-num</span> &#123;</span></span><br><span class="line">  <span class="variable">$angle</span><span class="value">: <span class="number">360</span> / <span class="variable">$box-num</span> * <span class="variable">$i</span>;</span></span><br><span class="line">  <span class="at_rule">@-webkit-keyframes<span class="preprocessor"> rotate</span>#&#123;</span><span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">      -webkit-<span class="attribute">transform</span><span class="value">: <span class="function">rotate</span>((<span class="variable">$angle</span>) % <span class="number">360</span> + deg);</span></span><br><span class="line">      <span class="attribute">border-color</span><span class="value">: <span class="function">rgba</span>(<span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">202.5</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>), <span class="number">0</span>);</span></span><br><span class="line">    &#125; 8<span class="class">.333333</span>% &#123;</span><br><span class="line">      <span class="attribute">border-color</span><span class="value">: <span class="function">rgba</span>(<span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">202.5</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>), .<span class="number">7</span>);</span></span><br><span class="line">    &#125; 16<span class="class">.666667</span>%, 50% &#123;</span><br><span class="line">      <span class="attribute">border-color</span><span class="value">: <span class="function">rgba</span>(<span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">202.5</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>), <span class="number">0</span>);</span></span><br><span class="line">      -webkit-<span class="attribute">transform</span><span class="value">: <span class="function">rotate</span>((<span class="variable">$angle</span> + <span class="number">180</span>) + deg);</span></span><br><span class="line">    &#125; 58<span class="class">.333333</span>% &#123;</span><br><span class="line">      <span class="attribute">border-color</span><span class="value">: <span class="function">rgba</span>(<span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">202.5</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>), .<span class="number">7</span>);</span></span><br><span class="line">    &#125; 66<span class="class">.666667</span>%, 100% &#123; </span><br><span class="line">      <span class="attribute">border-color</span><span class="value">: <span class="function">rgba</span>(<span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">202.5</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>), <span class="number">0</span>);</span></span><br><span class="line">      -webkit-<span class="attribute">transform</span><span class="value">: <span class="function">rotate</span>((<span class="variable">$angle</span> + <span class="number">360</span>) + deg);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="at_rule">@-webkit-keyframes<span class="preprocessor"> colorfir</span>#&#123;</span><span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">      <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">180</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">    &#125; 16<span class="class">.666667</span>%, 50% &#123;</span><br><span class="line">      <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">225</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">    &#125; 66<span class="class">.666667</span>%, 100% &#123;</span><br><span class="line">      <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">180</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="at_rule">@-webkit-keyframes<span class="preprocessor"> colorlas</span>#&#123;</span><span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">      <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">225</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">    &#125; 16<span class="class">.666667</span>%, 50% &#123;</span><br><span class="line">      <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">180</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">    &#125; 66<span class="class">.666667</span>%, 100% &#123;</span><br><span class="line">      <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">225</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">for</span> <span class="variable">$i</span><span class="preprocessor"> from</span><span class="preprocessor"> 1</span><span class="preprocessor"> through</span> <span class="variable">$box-num</span> &#123;</span></span><br><span class="line">  <span class="variable">$no</span><span class="value">: <span class="variable">$i</span> - <span class="number">1</span>;</span></span><br><span class="line">  <span class="variable">$angle</span><span class="value">: <span class="number">360</span> / <span class="variable">$box-num</span> * <span class="variable">$no</span>;</span></span><br><span class="line">  <span class="class">.box</span><span class="pseudo">:nth-child</span>(#&#123;<span class="variable">$i</span>&#125;) &#123;</span><br><span class="line">    <span class="attribute">left</span><span class="value">: <span class="variable">$center-xpos</span> + <span class="variable">$box-radius</span> * <span class="function">cos</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>) - <span class="variable">$box-width</span> / <span class="number">2</span>;</span></span><br><span class="line">    <span class="attribute">top</span><span class="value">: <span class="variable">$center-ypos</span> + <span class="variable">$box-radius</span> * <span class="function">sin</span>(<span class="variable">$angle</span> * <span class="function">pi</span>() / <span class="number">180</span>) - <span class="variable">$box-height</span> / <span class="number">2</span>;</span></span><br><span class="line">    <span class="attribute">border-color</span><span class="value">: <span class="function">rgba</span>(<span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">202.5</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>), <span class="number">0</span>);</span></span><br><span class="line">    -webkit-<span class="attribute">transform</span><span class="value">: <span class="function">rotate</span>((<span class="variable">$angle</span>) % <span class="number">360</span> + deg);</span></span><br><span class="line">    -webkit-<span class="attribute">animation-name</span><span class="value">: rotate#&#123;<span class="variable">$no</span>&#125;;</span></span><br><span class="line">    -webkit-<span class="attribute">animation-delay</span><span class="value">: <span class="variable">$no</span> * <span class="number">10.0</span> / <span class="number">24</span> + s;</span></span><br><span class="line">    <span class="class">.circle</span><span class="pseudo">:first-child</span> &#123;</span><br><span class="line">      <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">180</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">      -webkit-<span class="attribute">animation-name</span><span class="value">: colorfir#&#123;<span class="variable">$no</span>&#125;;</span></span><br><span class="line">      -webkit-<span class="attribute">animation-delay</span><span class="value">: <span class="variable">$no</span> * <span class="number">10.0</span> / <span class="number">24</span> + s;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class">.circle</span><span class="pseudo">:last-child</span> &#123;</span><br><span class="line">      <span class="attribute">background-color</span><span class="value">: <span class="function">hsl</span>((<span class="variable">$angle</span> + <span class="number">225</span>) % <span class="number">360</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span></span><br><span class="line">      -webkit-<span class="attribute">animation-name</span><span class="value">: colorlas#&#123;<span class="variable">$no</span>&#125;;</span></span><br><span class="line">      -webkit-<span class="attribute">animation-delay</span><span class="value">: <span class="variable">$no</span> * <span class="number">10.0</span> / <span class="number">24</span> + s;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>至此，文章一开始的那个在线演示就出来啦，再加个fork装装逼，完满结束。分享下过程图：</p>
+<p><img src="http://7u2mpp.com1.z0.glb.clouddn.com/pic3.jpg" alt="过程图"><img src="http://7u2mpp.com1.z0.glb.clouddn.com/pic4.jpg" alt="过程图"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2015/02/05/css3圆自旋动画/" data-id="ciaxxtgen0026joefvjjlviqm" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/">sass</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-自实现2048游戏" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/02/自实现2048游戏/" class="article-date">
+  <time datetime="2015-02-02T08:59:11.000Z" itemprop="datePublished">2015-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/02/自实现2048游戏/">自实现2048游戏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h1 id="Yedeying’s_2048">Yedeying’s 2048</h1><blockquote>
+<p>yedeying’s 2048 game</p>
+</blockquote>
+<p><a href="https://github.com/yedeying999/2048" target="_blank" rel="external">Github repo</a><br><a href="/sites/2048">Play Online</a></p>
+<h2 id="前言">前言</h2><p>2048是什么游戏就不说了, 这个项目是挺久前已经创建了。而创建它的动力, 就是想自己来实现一遍这个经典的游戏。</p>
+<p>记得当初创建时, 那晚也是通宵了, 算是实现了它的基本功能, 但是BUG一定不会少。就这样过了好久, 一直没动它。有时想动时, 看到以前自己写的那么烂的代码, 又无从下手了。所以, 架构真的很重要=.=。</p>
+<p>直到前几天, 决定重新把它给实现一遍。把之前的各种垃圾写法给扔掉(各种各样的全局函数, 作用域不鲜明等), 重新想了一遍这个应该怎么组织(具体思路看下面), 结果, 就出来了, 写个博文纪念下。</p>
+<h2 id="特点">特点</h2><p>主体分成两大部分, 一个Model类, 一个Game类(就是View类, 取名太乱不要嫌弃8.8), 还有一个调用的入口</p>
+<h3 id="Model类">Model类</h3><p>Model类提供了2048的模型及数据级的操作。</p>
+<h4 id="属性">属性</h4><p>主要数据属性是两个多维数组, 一个是邻接矩阵dataRect, 一个是数据表dataTable</p>
+<h5 id="dataRect">dataRect</h5><p>每个坐标都可以在dataRect里取到一个对象, 这个对象包含了该格的值(-1为空)和对应数据表的索引(-1为空)</p>
+<h5 id="dataTable">dataTable</h5><p>DataTable中只能通过id来获取其中某一项, 而每一项是一个对象, 包含格子坐标和值。</p>
+<p>而且有个特点：每一时刻, 每个有值的格子都会对应着唯一一个数据表项。</p>
+<!-- more -->
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dataRect[x][y] = &#123;</span><br><span class="line">  id: xxx,</span><br><span class="line">  val: xxx</span><br><span class="line">&#125;</span><br><span class="line">dataTable[id] = &#123;</span><br><span class="line">  x: xxx,</span><br><span class="line">  y: xxx,</span><br><span class="line">  val: xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="行为">行为</h4><p>Model类主要提供了以下行为<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">addGrid </span>       添加一个格子, 可以限定在某个方向的边沿生成, 从dataList中随机取一个值作为新值</span><br><span class="line"><span class="keyword">move </span>          移动操作, 接受四种方向</span><br><span class="line"><span class="label">show</span>           主要调试用, 往控制台输出当前的格子分布及数值</span><br></pre></td></tr></table></figure></p>
+<h4 id="参数">参数</h4><p>Model接受以下的参数, 通过对象传入<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">size</span> 大数, 默认为4</span><br><span class="line"><span class="tag">numList</span>        每次生成的数字都是从本数列中随机抽取的, 默认为<span class="attr_selector">[2, 4]</span>, 可以通过设置多个相同数字提高其出现概率, 如<span class="attr_selector">[2, 2, 2, 4]</span></span><br><span class="line"><span class="tag">createHandle</span>   当格子被创建时, 该函数会被调用, 提供对应的数据表项作为参数</span><br><span class="line"><span class="tag">moveHandle</span>     当格子移动后, 该函数会被调用, 提供对应的数据表项作为参数</span><br><span class="line"><span class="tag">delHandle</span>      当格子被删除时, 该函数会被调用, 提供对应的数据表项作为参数</span><br><span class="line"><span class="tag">finishHandle</span>   当游戏结束时, 该函数会被调用</span><br></pre></td></tr></table></figure></p>
+<h3 id="Game类">Game类</h3><p>为游戏提供展示、移动、删除、布局等功能<br>Game类主要做了以下事：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">createHandle</span>   为Model提供回调, 当生成一个格子时, 向页面添加该格子对应的html, 往dataTable添加col属性, 指向该格子对应的html元素</span><br><span class="line"><span class="keyword">moveHandle </span>    为Model提供回调, 当移动一人个格子时, 配合css的transition属性实现移动动作</span><br><span class="line"><span class="label">delHandle</span>      为Model提供回调, 当一个格子消失时, 删除页面对应的html元素</span><br><span class="line"><span class="label">finishHandle</span>   为Model提供回调, 当游戏结束时, 弹出结束框, 并去掉键盘监听</span><br><span class="line"><span class="keyword">bindEvents </span>    添加键盘事件, 提供WSAD, KJHL, ↑↓←→三种方向组合</span><br><span class="line"><span class="label">fixFontSize</span>    设置文字大小自适应, 以防因文字太大而溢出格子</span><br><span class="line"><span class="label">fixColor</span>       为每个格子添加<span class="preprocessor">data</span>-num属性, 代表其值以<span class="number">2</span>为根的对数, 配合css添加颜色样式</span><br><span class="line"><span class="label">initStyle</span>      一些动态的样式(如格子宽度等), 无法在css上写好, 故须写在js里</span><br></pre></td></tr></table></figure></p>
+<h3 id="特色功能">特色功能</h3><p>提供大小设置功能, 可让玩家体验非4*4大小的2048游戏(10*10那种不是一般人玩的= =)</p>
+<h2 id="最后">最后</h2><p>祝玩得开心^.^, 源码主要是script.js, 如有可以改进的地方可以<a href="mailto:yedeying999@gmail.com?subject=about%202048" target="_blank" rel="external">Tell me</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2015/02/02/自实现2048游戏/" data-id="ciaxxtgen002cjoeffde770ca" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-messagebar-a-plugin-for-alerting-info" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/11/messagebar-a-plugin-for-alerting-info/" class="article-date">
+  <time datetime="2014-09-11T03:33:36.000Z" itemprop="datePublished">2014-09-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/11/messagebar-a-plugin-for-alerting-info/">messagebar: a plugin for alerting info</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一个插件, 一个提示框插件, 十分轻量, 十分精简, 为本人无聊打发时间作品<br>详戳<a href="https://github.com/yedeying999/messagebar" target="_blank" rel="external">github repo</a>  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">something&#10;  title hel&#10;  titlehel&#10;    1. hehe haha&#10;    2. haha&#10;  dsfa fdaf</span><br></pre></td></tr></table></figure>
+<p>以下是插件的介绍~~~</p>
+<h1 id="messagebar-js">messagebar.js</h1><p>This is a plugin for alerting info.</p>
+<h3 id="Usage">Usage</h3><h4 id="include:">include:</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"messagebar.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="usage:">usage:</h4><p>messagebar can be used in the ways shown below<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">messagebar.alert(message);</span><br><span class="line">messagebar.alert(message, preventAutoClosing);</span><br><span class="line">messagebar.alert(option);</span><br></pre></td></tr></table></figure></p>
+<p><strong>Notice:</strong> The variable message is a string you want to alert, then preventAutoClosing means that if you need to click a closing button by yourself to have it disappear. The 3rd line recieve an object to be the arguments, we expect the object to be formatted as below, or you will get an error.<br><strong>option format:</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// string: the message you want to show</span></span><br><span class="line">  message: <span class="string">'you have not input any message'</span>,</span><br><span class="line">  <span class="comment">// string: a string only include one of left or right and one of up and down, a space to split</span></span><br><span class="line">  position: <span class="string">'right top'</span>,</span><br><span class="line">  <span class="comment">// number: a time delay after which the messagebar will show</span></span><br><span class="line">  delay: <span class="number">0</span>, </span><br><span class="line">  <span class="comment">// number: if property 'pause' is false, the messagebar will disappear after this time</span></span><br><span class="line">  time: <span class="number">3000</span>,</span><br><span class="line">  <span class="comment">// boolean: control that if you need to click a closing button by yourself to have it disappear</span></span><br><span class="line">  pause: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>tips:</strong> the values of every property of option will be set if you ignore it. That is to say, you can offer any number propertys of the option, if you want to use the default value.</p>
+<h4 id="Demo">Demo</h4><p><a href="/sites/messagebar/index.html">Here is a demo</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/09/11/messagebar-a-plugin-for-alerting-info/" data-id="ciaxxtgen002hjoef4xsiqkwt" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css3-yuan-nei-huan-dong-hua" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/02/css3-yuan-nei-huan-dong-hua/" class="article-date">
+  <time datetime="2014-09-02T05:32:00.000Z" itemprop="datePublished">2014-09-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/02/css3-yuan-nei-huan-dong-hua/">css3 圆内环动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<p>某一天, 在网上看到这幅图, 兴趣袭来<br><img src="/images/201409021.gif" alt="circle animation"><br>仔细看, 发现有以下几个特点</p>
+<ul>
+<li>八个点一直在做直线运动</li>
+<li>每个点并非匀速运动</li>
+<li>每个点永远处于一个假想内环圆的圆边上  </li>
+</ul>
+<p>于是就想到去codepen做一个这东西的css版, 来锻炼下自已捉急的CSS水平</p>
+<h3 id="首先,_建立html结构">首先, 建立html结构</h3><p>这个很简单, 不过为了这个图的每个数量可控性, 这里用jade来写<br>outer类是大圆, inner类是小圆<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-num=(8)&#10;.page-outer&#10;  while num--&#10;    .page-inner</span><br></pre></td></tr></table></figure></p>
+<h3 id="其次,_给结构赋予样式">其次, 给结构赋予样式</h3><p>这一步, 要给大圆加上半径, 宽高, 背景各种, 小圆用absolute在大圆内定位, 它们的半径就用<code>$R</code>和<code>$r</code>来表示<br>最初将小圆定位在大圆的中心<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$R: 200px;&#10;$r: 25px;&#10;.page-outer &#123;&#10;  background: red;&#10;  position: relative;&#10;  width: $R * 2;&#10;  height: $R * 2;&#10;  border-radius: $R;&#10;  .page-inner &#123;&#10;    position: absolute;&#10;    left: $R;&#10;    top: $R;&#10;    background: #fff;&#10;    width: $r * 2;&#10;    height: $r * 2;&#10;    margin-left: $r * -1;&#10;    margin-top: $r * -1;&#10;    border-radius: $r;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<!-- more -->
+<p>然后就得到了它大概的样子  </p>
+<p><div class="page-outer"><style>.page-outer{background:red;position:relative;width:400px;height:400px;border-radius:200px;}.page-outer .page-inner{position:absolute;left:200px;top:200px;background:#fff;width:50px;height:50px;margin-left:-25px;margin-top:-25px;border-radius:25px;}</style><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div></div></p>
+<h3 id="接着,_添加动画">接着, 添加动画</h3><p>添加动画要注意很多细节:  </p>
+<ol>
+<li>每个点的初始位置<br>这里可以把对应数量的圆平均分布在一个半圆内, 不过注意这个半圆弧只有一个端点上有圆<br>计算出它们的极角, 再利用sin cos以及圆心, 可以求得它们的left, top值  </li>
+<li>每个点的运动延迟时间<br>观察原图, 或者自己画一下分析图, 发现当内圆环绕一圈时, 一个小点会完成一次来回, 也就可以认为一次来或回的时间, 等于每个球的延迟时间 * 数量, 也就可以求得了  </li>
+<li>每个点的运动速度变化<br>这是相对难的一部分, 自己从圆环绕这个动作研究了一下每个小圆的运动轨迹, 发现它的速度变化和三角函数有着很大的联系, 但CSS提供的是三次贝塞尔曲线函数, 所以退了一步找到一个相似的时间函数  </li>
+</ol>
+<p>最终结果如下:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$R: 200px;&#10;$r: 2px;&#10;$speed: 1s;&#10;$num: 64;&#10;$radius: $R - $r;&#10;$i: $num;&#10;@while $i &#62; 0 &#123;&#10;  @keyframes move#&#123;$i&#125; &#123;&#10;    $angle: ($i - 1) * 180 / $num;&#10;    from &#123;&#10;      left: $R - $radius * sin($angle * pi() / 180);&#10;      top: $R - $radius * cos($angle * pi() / 180);&#10;    &#125; to &#123;&#10;      left: $R + $radius * sin($angle * pi() / 180);&#10;      top: $R + $radius * cos($angle * pi() / 180);&#10;    &#125;&#10;  &#125;&#10;  $i: $i - 1;&#10;&#125;&#10;.page-outer &#123;&#10;  background: red;&#10;  position: relative;&#10;  width: $R * 2;&#10;  height: $R * 2;&#10;  border-radius: $R;&#10;  .page-inner &#123;&#10;    position: absolute;&#10;    left: $R;&#10;    top: $R;&#10;    background: #fff;&#10;    width: $r * 2;&#10;    height: $r * 2;&#10;    margin-left: $r * -1;&#10;    margin-top: $r * -1;&#10;    border-radius: $r;&#10;    animation-duration: $speed;&#10;    animation-iteration-count: infinite;&#10;    animation-direction: alternate;&#10;    animation-timing-function: cubic-bezier(0.4,0,0.6,1);&#10;    $i: $num;&#10;    @while $i &#62; 0 &#123;&#10;      &#38;:nth-of-type(#&#123;$i&#125;) &#123;&#10;        animation-delay: $speed / $num * ($i - 1);&#10;        animation-name: move#&#123;$i&#125;;&#10;      &#125;&#10;      $i: $i - 1;&#10;    &#125;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为增强效果, 我把数量由8改成了64, 然后更加赞叹了, 竟然是由直线运动组成的</p>
+<p>DEMO:<br><iframe id="cp_embed_hjHkb" src="//codepen.io/yedeying999/embed/hjHkb?height=420&theme-id=result&slug-hash=hjHkb&default-tab=7961" scrolling="no" frameborder="0" height="420" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/09/02/css3-yuan-nei-huan-dong-hua/" data-id="ciaxxtgfi002kjoef2oh4yr8w" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/">sass</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript-cross-origin-studying" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/27/javascript-cross-origin-studying/" class="article-date">
+  <time datetime="2014-08-27T07:49:49.000Z" itemprop="datePublished">2014-08-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/27/javascript-cross-origin-studying/">javascript 跨域学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<p>项目地址: <a href="https://github.com/yedeying999/cross-origin-try" target="_blank" rel="external">https://github.com/yedeying999/cross-origin-try</a></p>
+<h2 id="1-_Cross_Origin_Resource_Sharing(CORS)_跨域资源共享">1. Cross Origin Resource Sharing(CORS) 跨域资源共享</h2><h3 id="兼容性:">兼容性:</h3><pre><code><span class="tag">IE</span> 8 +
+<span class="tag">Firefox</span> 15<span class="class">.0</span> +
+<span class="tag">Chrome</span> 22<span class="class">.0</span> +
+<span class="tag">Safari</span> 5<span class="class">.1</span> +
+<span class="tag">Opera</span> 12<span class="class">.0</span> +
+<span class="tag">IOS</span> <span class="tag">Safari</span> 3<span class="class">.2</span> +
+<span class="tag">Android</span> 2<span class="class">.1</span> +
+<span class="tag">Blackberry</span> <span class="tag">Browser</span> 7<span class="class">.0</span> +
+</code></pre><h3 id="实现手段:">实现手段:</h3><pre><code>数据端:
+    设置<span class="keyword">Access</span>-Control-Allow-Origin头, 值为*或对应要访问的域名
+客户端:
+    IE8-<span class="number">9</span>使用 XDomainRequest
+    其它客户端使用标准AJAX方法
+</code></pre><!-- more -->
+<h3 id="评价:">评价:</h3><pre><code>数据安全性良好, 支持大量数据, 支持<span class="keyword">POST</span>, 但兼容性要求相比其它略高
+</code></pre><h3 id="示例:">示例:</h3><p>客户端 index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"ye"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.XDomainRequest) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> XDomainRequest();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.ActiveXObject) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'no xhr'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">parse</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.JSON) &#123;</span><br><span class="line">          <span class="keyword">var</span> x = <span class="built_in">JSON</span>.parse(xhr.responseText);</span><br><span class="line">          <span class="built_in">document</span>.getElementById(<span class="string">'ye'</span>).innerHTML = x.name;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="built_in">document</span>.getElementById(<span class="string">'ye'</span>).innerHTML = xhr.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> xhr = createXHR();</span><br><span class="line">      <span class="keyword">var</span> url = <span class="string">'http://localhost:3000'</span>;</span><br><span class="line">      xhr.open(<span class="string">"post"</span>, url, <span class="literal">true</span>);</span><br><span class="line">      xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">          parse();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">window</span>.XDomainRequest) &#123;</span><br><span class="line">        xhr.onload = parse;</span><br><span class="line">      &#125;</span><br><span class="line">      xhr.send(<span class="string">'data=hehe'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>服务端 nodejs<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line"></span><br><span class="line"><span class="comment">/* POST home page. */</span></span><br><span class="line">router.post(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'*'</span>);</span><br><span class="line">  <span class="keyword">var</span> arr = [];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> req)</span><br><span class="line">    arr.push(i);</span><br><span class="line">  arr.sort();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr)</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">  <span class="built_in">console</span>.dir(req.param(<span class="string">'data'</span>));</span><br><span class="line">  <span class="comment">// console.dir(req);</span></span><br><span class="line">  res.send(&#123;</span><br><span class="line">    name: <span class="string">'yedeying'</span>,</span><br><span class="line">    age: <span class="number">20</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-_Cross_Document_Messaging_跨文档消息传输">2. Cross Document Messaging 跨文档消息传输</h2><h3 id="兼容性:-1">兼容性:</h3><pre><code><span class="tag">IE</span> 8 +
+<span class="tag">Firefox</span> 3<span class="class">.0</span> +
+<span class="tag">Chrome</span> 3<span class="class">.0</span> +
+<span class="tag">Safari</span> 4<span class="class">.0</span> +
+<span class="tag">Opera</span> 9<span class="class">.0</span> +
+</code></pre><h3 id="实现手段:-1">实现手段:</h3><pre><code>HTML5的postMessage和onmessage API, 配合iframe实现
+    <span class="number">1</span>. 在要访问数据的页面A创建<span class="tag">iframe</span>, 指向保存数据的页面B
+    <span class="number">2</span>. 页面A通过<span class="tag">iframe</span><span class="class">.contentWindow</span><span class="class">.postMessage</span>向页面B发送请求及数据, 数据格式可以为JSON或字符串等
+    <span class="number">3</span>. 页面B通过onmessage监听页面A发来的请求, 并通过window<span class="class">.parent</span><span class="class">.postMessage</span>向页面A反馈信息
+</code></pre><h3 id="评价:-1">评价:</h3><pre><code>兼容性相比CORS方式更优
+</code></pre><h3 id="样例:">样例:</h3><p>客户端 index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">onclick</span>=<span class="value">"handler()"</span>&gt;</span>发信<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"value"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">placeholder</span>=<span class="value">"请输入信息"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">src</span>=<span class="value">"./frame.html"</span> <span class="attribute">frameborder</span>=<span class="value">"0"</span> <span class="attribute">width</span>=<span class="value">"100%"</span> <span class="attribute">height</span>=<span class="value">"100%"</span>&gt;</span><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> input = <span class="built_in">document</span>.querySelector(<span class="string">'#value'</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">'iframe'</span>).contentWindow.postMessage(input.value, <span class="string">'*'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>服务端 frame.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>ye<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">      <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> h1 = <span class="built_in">document</span>.querySelector(<span class="string">'h1'</span>);</span><br><span class="line">        h1.innerHTML = <span class="string">'you have not post any message'</span>;</span><br><span class="line">        <span class="built_in">window</span>.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">          h1.innerHTML = e.data;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="3-_使用window-name解决跨域问题">3. 使用window.name解决跨域问题</h2><h3 id="兼容性:-2">兼容性:</h3><pre><code>几乎所有浏览器都支持
+</code></pre><h3 id="实现手段:-2">实现手段:</h3><pre><code>一个页面在更改<span class="built_in">document</span>.location前后, 其<span class="built_in">window</span>.name属性不变.
+利用此特性:
+    <span class="number">1.</span> 用一个iframe指向数据页面A, 将需要传输的数据存到<span class="built_in">window</span>.name里
+    <span class="number">2.</span> 将其location指向一个与申请页面B同域名的代理页面C
+    <span class="number">3.</span> 在B页面或C页面把<span class="built_in">window</span>.name的内容由页面C传送到页面B
+</code></pre><h3 id="评价:-2">评价:</h3><pre><code>接近完美, 只是实现手段有点绕
+</code></pre><h3 id="样例:-1">样例:</h3><p>客户端 index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">onclick</span>=<span class="value">'getInfo()'</span>&gt;</span>获取数据<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'text'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getInfo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>),</span><br><span class="line">        bl = <span class="literal">true</span>;</span><br><span class="line">      iframe.style.display = <span class="string">'none'</span>;</span><br><span class="line">      iframe.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(bl) &#123;</span><br><span class="line">          iframe.contentWindow.location = <span class="string">'./proxy.html?callback=callback'</span>;</span><br><span class="line">          bl = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      iframe.src = <span class="string">'http://localhost:3000'</span>;</span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(iframe);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">document</span>.getElementById(<span class="string">'text'</span>).innerHTML = data;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>数据端 data.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Data<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="ocaml"></span><br><span class="line">    window.name = <span class="symbol">'the</span> information <span class="type">I</span> want <span class="keyword">to</span> send';</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>代理端 proxy.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="stata"></span><br><span class="line">    <span class="keyword">var</span> callback = location.<span class="keyword">search</span>.<span class="keyword">split</span>('=')[1];</span><br><span class="line">    <span class="keyword">window</span>.parent[callback](<span class="keyword">window</span>.name);</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4-_jsonp">4. jsonp</h2><h3 id="兼容性:-3">兼容性:</h3><pre><code>几乎所有浏览器都支持
+</code></pre><h3 id="实现手段:-3">实现手段:</h3><pre><code>HTML中script的src标签可以跨域申请javascript文本, 属于GET方法, 服务器只要对URL响应返回对应的数据就可以达到目的, 但客户端要求javascript语句, 而json等文本并非javascript语句, 此时将其封装成回调函数即可
+
+客户端:
+    中在目标url后加入?<span class="keyword">callback</span>=cb之类的字眼, 其中<span class="keyword">callback</span>及cb都可以自定, <span class="keyword">callback</span>代表服务器端识别的关键字, cb代表客户端中用以回调数据的全局函数
+服务端:
+    <span class="number">1.</span> 接收到请求时, 通过约定的key获取回调函数的名字cb
+    <span class="number">2.</span> 设置响应头的Content-Type: text/javascript
+    <span class="number">3.</span> 通过读取对应的json文件, 返回cb(jsonData)这样的格式
+</code></pre><h3 id="评价:-3">评价:</h3><pre><code>兼容性完美, 但因为请求信息通过url传送, 所以传送数据不能太大, 即使浏览器能容纳也不直观, 适合只传送某些参数的情况, 另外不支持<span class="keyword">POST</span>
+</code></pre><h3 id="样例:-2">样例:</h3><p>客户端 html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"ye"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(data) &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'ye'</span>).innerHTML = data.name + <span class="string">' is at age '</span> + data.age;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> scr = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(scr);</span><br><span class="line">      scr.src = <span class="string">'http://localhost/ye/jsonp/data.php?callback=callback'</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>数据端 data.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">  header(<span class="string">"Content-type:text/Javascript"</span>);</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$_GET</span>[<span class="string">'callback'</span>].<span class="string">'('</span>;</span><br><span class="line">  <span class="variable">$txt</span> = readfile(<span class="string">'data.json'</span>);</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">')'</span>;</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>数据 data.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">name</span>": <span class="value"><span class="string">"yedeying"</span></span>,</span><br><span class="line">  "<span class="attribute">age</span>": <span class="value"><span class="number">18</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-_Websocket">5. Websocket</h2><h3 id="兼容性:-4">兼容性:</h3><pre><code><span class="title">Chrome</span> <span class="number">4</span>+
+Firefox <span class="number">4</span>+
+Internet Explorer <span class="number">10</span>+
+Opera <span class="number">10</span>+
+Safari <span class="number">5</span>+
+</code></pre><h3 id="实现手段:-4">实现手段:</h3><pre><code>HTML5的websocket协议, 至今多数服务端都已支持websocket
+</code></pre><h3 id="评价:-4">评价:</h3><pre><code>websocket实际上应该是作为全双工连接最标准的实现方式, 因此可以用到跨域问题上, 奈何其兼容性不够好
+</code></pre><h3 id="样例:-3">样例:</h3><p>客户端 index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Socket.IO<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">h2</span> <span class="attribute">id</span>=<span class="value">"p"</span>&gt;</span><span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"/socket.io/socket.io.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">str</span>) </span>&#123; <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(str); &#125;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">str</span>) </span>&#123; p.innerHTML = str; &#125;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">        data = <span class="built_in">JSON</span>.parse(data);</span><br><span class="line">        show(data.name + <span class="string">' is at age '</span> + data.age);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> p = $(<span class="string">'p'</span>), socket = io();</span><br><span class="line">      <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        socket.emit(<span class="string">'getData'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      socket.on(<span class="string">'data'</span>, callback);</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>服务端 nodejs index.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'express'</span>)();</span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>).Server(app);</span><br><span class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>)(http);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.sendfile(<span class="string">'index.html'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'a user connected'</span>);</span><br><span class="line">  socket.on(<span class="string">'getData'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fs.readFile(<span class="string">'data.json'</span>, &#123;encoding: <span class="string">'utf8'</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (err) <span class="keyword">throw</span> <span class="keyword">new</span> err;</span><br><span class="line">      socket.emit(<span class="string">'data'</span>, data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">http.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'listening on *:3000'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/08/27/javascript-cross-origin-studying/" data-id="ciaxxtgfi002qjoefaassnaoc" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cross-origin/">cross-origin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-canvas-studying" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/20/canvas-studying/" class="article-date">
+  <time datetime="2014-08-20T08:48:14.000Z" itemprop="datePublished">2014-08-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/20/canvas-studying/">canvas学习 - 动态绘制五角星</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a><!-- more -->
+<iframe id="cp_embed_fbrat" src="//codepen.io/yedeying999/embed/fbrat?height=800&theme-id=javascript&slug-hash=fbrat&default-tab=7961" scrolling="no" frameborder="0" height="800" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/08/20/canvas-studying/" data-id="ciaxxtgfy002vjoefn8ifo71b" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-RCP-studying" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/07/15/RCP-studying/" class="article-date">
+  <time datetime="2014-07-15T03:10:32.000Z" itemprop="datePublished">2014-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/other/">other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/15/RCP-studying/">RCP学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">一些model特征:</span><br><span class="line">    Trimmed <span class="string">Window:</span> 带最小化最大化的窗体</span><br><span class="line">    Perspective <span class="string">Stack:</span> 装载Perspective的容器</span><br><span class="line">    Perspective：一个透视，可以直接包含PartSashContainer, Part Stack或Part</span><br><span class="line"><span class="label">    PartSashContainer:</span> 装载Part Stack的容器</span><br><span class="line">    Part <span class="string">Stack:</span> 可以装载多个Part, 分多个标签栏显示</span><br><span class="line"><span class="label">    Part:</span> 一个标签以及对应的editor, 可通过URI定位代码类来扩展内容</span><br><span class="line"><span class="string">SWT:</span></span><br><span class="line">    组件:</span><br><span class="line">        Text 输入框</span><br><span class="line">        Button 按钮</span><br><span class="line">        Browser 浏览器</span><br><span class="line">    事件:</span><br><span class="line">        addSelectionListener方法，<span class="keyword">new</span> SelectionAdapeor()类作为参数，或实现SelectionListener接口的类</span><br><span class="line">ANNOTATION <span class="string">API:</span></span><br><span class="line">    <span class="annotation">@PostConstruct</span>: 将于构建组件时被调用</span><br><span class="line">    <span class="annotation">@PreDestroy</span>: 将于摧毁组件前被调用</span><br><span class="line">    <span class="annotation">@Focus</span>: 当组件或得焦点时被调用</span><br><span class="line">    <span class="annotation">@Persists</span>: 当保存状态改变时被调用</span><br><span class="line">    <span class="annotation">@PersistState</span>: 在<span class="annotation">@PreDestroy</span>及摧毁组件前被调用，主要用于保存Persist信息</span><br><span class="line"><span class="string">TIPS:</span></span><br><span class="line">    关于事件参数，*Adapter类为实现了默认参数的*Listener类，无须强制重载</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/07/15/RCP-studying/" data-id="ciaxxtgfy0030joef7xb8qur8" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rcp/">rcp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-pei-zhi-node" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/05/22/pei-zhi-node/" class="article-date">
+  <time datetime="2014-05-22T07:50:17.000Z" itemprop="datePublished">2014-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/05/22/pei-zhi-node/">配置node与express初试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.nodejs.org/" target="_blank" rel="external">http://www.nodejs.org/</a>下载对应系统的node版本并安装<br><br>用npm包管理器安装需要的包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g express</span><br><span class="line">sudo npm install -g express-generator</span><br><span class="line">sudo npm install -g coffee-script</span><br></pre></td></tr></table></figure></p>
+<p>找一个目录，运行以下命令创建一个工程，并运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">express [<span class="operator">-e</span>] hello</span><br><span class="line"><span class="built_in">cd</span> hello</span><br><span class="line">npm install</span><br><span class="line">./bin/www</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/05/22/pei-zhi-node/" data-id="ciaxxtgfy0037joefu6i1uvr6" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-audio-and-video-biao-qian" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/28/audio-and-video-biao-qian/" class="article-date">
+  <time datetime="2014-04-28T13:18:06.000Z" itemprop="datePublished">2014-04-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/28/audio-and-video-biao-qian/">标签audio及其用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="可用属性:">可用属性:</h4><ul>
+<li>src  来源，一般为一个url</li>
+<li>autoplay  是否自动播放</li>
+<li>controls  是否加载控制面板</li>
+<li>loop  是否循环播放</li>
+<li>muted  表示是否静音的布尔值</li>
+<li>preload  是否预加载，可选值为none(不加载), metadata(加载元数据), auto(default值，预加载)</li>
+</ul>
+<h4 id="Javascript加CSS写一简单播放器">Javascript加CSS写一简单播放器</h4><iframe id="cp_embed_jsyAi" src="//codepen.io/yedeying999/embed/jsyAi?height=400&theme-id=html&slug-hash=jsyAi&default-tab=7963" scrolling="no" frameborder="0" height="400" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/04/28/audio-and-video-biao-qian/" data-id="ciaxxtgfy003ijoefwbhltjn1" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/audio/">audio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-yong-octopressda-jian-github-page" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/28/yong-octopressda-jian-github-page/" class="article-date">
+  <time datetime="2014-04-28T06:32:04.000Z" itemprop="datePublished">2014-04-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/other/">other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/28/yong-octopressda-jian-github-page/">用octopress搭建github page</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<blockquote>
+<p>尝试和失败了无数次，终于把博客搭好了，以下简述下我的搭建过程。</p>
+</blockquote>
+<h2 id="引言">引言</h2><blockquote>
+<p><a href="http://octopress.org/" target="_blank" rel="external">Octopress</a>是利用<a href="http://jekyllrb.com/" target="_blank" rel="external">Jekyll</a>博客引擎开发的一个博客系统，生成的静态页面能够很好的在<a href="https://pages.github.com/" target="_blank" rel="external">github page</a>上展现。号称是hacker专属的一个博客系统(A blogging framework for hackers.)</p>
+</blockquote>
+<h2 id="目录">目录</h2><ol>
+<li>配置环境</li>
+<li>安装octopress</li>
+<li>配置github</li>
+<li>配置octopress</li>
+<li>开始部署</li>
+<li>完成</li>
+<li>一些小技巧</li>
+</ol>
+<h3 id="配置环境">配置环境</h3><p>安装octopress需要ruby和git环境，Mac OS 10.9 上自带有ruby和git环境，故不作述。<br>(大家可以检查下自己的ruby gem和git是否有正确配置好)</p>
+<!-- more -->
+<p>(以下命令请自觉用sudo来执行，不然可能有权限问题)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ruby --version</span><br><span class="line">git --version</span><br><span class="line">gem --version</span><br></pre></td></tr></table></figure>
+<p>安装rbenv</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/rbenv.git ~/.rbenv</span><br><span class="line"><span class="comment"># 用来编译安装 ruby</span></span><br><span class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</span><br><span class="line"><span class="comment"># 用来管理 gemset, 可选, 因为有 bundler 也没什么必要</span></span><br><span class="line">git <span class="built_in">clone</span> git://github.com/jamis/rbenv-gemset.git  ~/.rbenv/plugins/rbenv-gemset</span><br><span class="line"><span class="comment"># 通过 gem 命令安装完 gem 后无需手动输入 rbenv rehash 命令, 推荐</span></span><br><span class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash</span><br><span class="line"><span class="comment"># 通过 rbenv update 命令来更新 rbenv 以及所有插件, 推荐</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update</span><br></pre></td></tr></table></figure>
+<p>然后把下面的代码放到<code>~/.bash_profile</code>里</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$HOME</span>/.rbenv/bin:<span class="variable">$PATH</span>"</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(rbenv init -)</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装octopress">安装octopress</h3><p>通过以下命令安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/imathis/octopress.git octopress</span><br><span class="line"><span class="built_in">cd</span> octopress</span><br></pre></td></tr></table></figure>
+<p>接下来安装依赖项</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem install bundle <span class="comment"># 等待强迫症患者可以像我一样，在最后加个-V，这样它会告诉你已经进行到哪里</span></span><br><span class="line">rbenv <span class="built_in">rehash</span></span><br><span class="line">bundle install</span><br></pre></td></tr></table></figure>
+<p>安装默认的Octopress主题</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake install <span class="comment"># 若提示错误可尝试在其前加上bundle exec(原因是某些版本不一致)</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置github">配置github</h3><p>要想把页面展示在<a href="https://github.com/" target="_blank" rel="external">github</a>上，请保证你已经注册了一个github帐号，然后创建一个名为<code>你的用户名.github.io</code>的仓库，并保存下它的github地址<code>example: https://github.com/yedeying999/yedeying999.github.io</code></p>
+<h3 id="配置octopress">配置octopress</h3><p>进入octopress文件夹</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> octopress</span><br></pre></td></tr></table></figure>
+<p>编辑配置文件<code>_config.yml</code>，修改其中的<code>url</code>，填上刚刚的github仓库地址，然后还有就是<code>title</code> <code>subtitle</code> <code>author</code>这些，名字都写的很清楚了，根据自己的来填</p>
+<p>接着，建议把文件末部的twitter, facebook, google plus等配置给注释掉，因为这些都是GFW以外的东西，会导致网页速度缓慢，同理，修改定制文件/source/_includes/custom/head.html 把google的自定义字体去掉。</p>
+<h3 id="开始部署">开始部署</h3><p>执行以下命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不行加bundle exec，原理同上，下同</span></span><br><span class="line">rake setup_github_pages  <span class="comment">#命令会要求我们输入github地址，还是刚刚那个仓库地址</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake new_post[<span class="string">'title'</span>]</span><br></pre></td></tr></table></figure>
+<p>然后进入<code>source/_post</code>中会看到20xx-xx-xx-title.md，title是自定义的，然后我们就可以通过编辑这个markdown文档来写博客啦，写完之后</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rake generate <span class="comment"># 把source里面的内容，生成到_deploy文件夹</span></span><br><span class="line">rake deploy   <span class="comment"># 把_deploy的内容上传到github上</span></span><br><span class="line"><span class="comment"># 以上两命令在每次写新博文时都要执行一次</span></span><br><span class="line">rake preview  <span class="comment"># 可通过该命令在本地浏览生成的博客，地址http://localhost:4000</span></span><br></pre></td></tr></table></figure>
+<h3 id="完成">完成</h3><p>做完这一切后，我们就可以通过<code>http://你的用户名.github.io</code>来访问你的博客了</p>
+<h3 id="一些小技巧">一些小技巧</h3><p>作为一个懒人，我当然不想每次都敲那么长命令来写博客啦，所以</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim ~/deploy.sh</span><br><span class="line">vim ~/new.sh</span><br></pre></td></tr></table></figure>
+<p>分别加入以下内容</p>
+<figure class="highlight sh"><figcaption><span>deplog.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/octopress</span><br><span class="line">bundle <span class="built_in">exec</span> rake generate</span><br><span class="line">bundle <span class="built_in">exec</span> rake deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><figcaption><span>new.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/octopress</span><br><span class="line">bundle <span class="built_in">exec</span> rake new_post[<span class="variable">$1</span>]</span><br></pre></td></tr></table></figure>
+<p>然后，为普通用户添加执行权限</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x deploy.sh</span><br><span class="line">sudo chmod a+x new.sh</span><br></pre></td></tr></table></figure>
+<p>大家应该都看得出，deploy就是发布的懒操作，而new就是新建博客的懒操作，用法如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./new.sh name <span class="comment"># name就是新博文的名字</span></span><br><span class="line">./deploy.sh</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/04/28/yong-octopressda-jian-github-page/" data-id="ciaxxtgfy003ejoefpzfpreo5" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標簽</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/animation/">animation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio/">audio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-origin/">cross-origin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/">csv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/editor/">editor</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/install/">install</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rcp/">rcp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xampp/">xampp</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標簽雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/animation/" style="font-size: 12px;">animation</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/canvas/" style="font-size: 12px;">canvas</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cross-origin/" style="font-size: 10px;">cross-origin</a> <a href="/tags/css/" style="font-size: 18px;">css</a> <a href="/tags/css3/" style="font-size: 14px;">css3</a> <a href="/tags/csv/" style="font-size: 10px;">csv</a> <a href="/tags/editor/" style="font-size: 12px;">editor</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/html/" style="font-size: 16px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/install/" style="font-size: 10px;">install</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/rcp/" style="font-size: 10px;">rcp</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/sass/" style="font-size: 12px;">sass</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tools/" style="font-size: 12px;">tools</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/xampp/" style="font-size: 10px;">xampp</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">歸檔</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/05/css3圆自旋动画/">css3圆自旋动画</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/02/自实现2048游戏/">自实现2048游戏</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/11/messagebar-a-plugin-for-alerting-info/">messagebar: a plugin for alerting info</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/02/css3-yuan-nei-huan-dong-hua/">css3 圆内环动画</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/27/javascript-cross-origin-studying/">javascript 跨域学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情鏈接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Yedeying<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>

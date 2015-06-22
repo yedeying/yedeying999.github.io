@@ -1,0 +1,282 @@
+#editor,#editor1 {
+  max-height: 250px;
+  height: 250px;
+  background-color: white;
+  border-collapse: separate;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 10px;
+  box-sizing: content-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+  border-radius: 8px;
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  overflow: auto;
+  outline: none;
+}
+
+#editor1 {
+  height: 150px;
+}
+
+#editor:focus,#editor1:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+}
+
+#selectPage,#selectPageSize {
+  width: 70px;
+}
+
+* {
+  word-wrap: break-word;
+}
+
+.alert-well {
+  padding: 15px !important;
+}
+
+.border-table {
+  border: 2px solid raba(66,139,202,0.8) !important;
+}
+
+.btn-nav-search {
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
+.btn-reply {
+  margin-top: 10px;
+}
+
+.btn-toolbar {
+  margin-bottom: 10px;
+}
+
+.div-comment1 {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.div-nav-search {
+  margin-left: 10px;
+  width: 500px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.div-topic {
+  background-color: white;
+  height: 150px;
+}
+
+.div-topic-num {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.div-topic:hover {
+  border: 3px solid rgba(66,139,202,0.8);
+}
+
+.dropdown-menu a {
+  cursor: pointer;
+}
+
+.footer {
+  position: relative;
+  margin-top: -80px;
+  margin-bottom: 0;
+  height: 80px;
+  clear: both;
+  width: 100%;
+  padding: 20px;
+  bottom: 0px;
+  text-align: center;
+}
+
+.for-alert-classification {
+  position: relative;
+  right: -30px;
+  top: 0px;
+  width: 5px;
+  height: 5px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.for-alert-title {
+  position: relative;
+  right: -30px;
+  top: -40px;
+  width: 5px;
+  height: 5px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.hr-sm {
+  height: 1px;
+  color: #ddd;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.img-info {
+  width: 60px;
+  height: 60px;
+}
+
+.inline {
+  display: inline !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.input-search {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  width: 200px;
+}
+
+.list-group {
+  margin-top: 20px;
+}
+
+.list-group>a {
+  border-radius: 5px;
+}
+
+.list-noborder {
+  padding: 5px 15px 5px 15px !important;
+  margin-top: 8px !important;
+  border-width: 0px !important;
+}
+
+.main {
+  width: 960px !important;
+  padding-bottom: 80px !important;
+}
+
+.modal-dialog {
+  width: 680px !important;
+}
+
+.nav-div {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-image {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.nav-person span {
+  margin-left: 5px !important;
+}
+
+.pagesetter {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.pagination {
+  margin-top: 6px !important;
+}
+
+.panel-content {
+  max-height: 380px;
+  overflow: auto;
+}
+
+.que-append {
+  margin-top: 8px;
+}
+
+.que-border,.div-reply {
+  background-color: #ffffff;
+}
+
+.que-content {
+  margin-bottom: 5px;
+}
+
+.que-head {
+  margin-bottom: 15px;
+}
+
+.que-title {
+  margin-bottom: 10px;
+}
+
+.select-classification {
+}
+
+.sort-zan,.btn-slide-reply {
+  margin-right: 8px;
+}
+
+.sort-zan,.sort-time,.btn-slide-reply {
+  position: relative;
+  top: -5px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: #efefef !important;
+}
+
+.up-num {
+  background-color: #ddd;
+  padding: 5px;
+  text-align: center;
+  color: #888;
+  border-radius: 10px;
+  width: 47px !important;
+  height: 47px !important;
+}
+
+.user-dropdown {
+  text-align: center;
+  min-width: 160px;
+}
+
+.well>.alert-time {
+  color: #aaaaaa;
+  margin-bottom: 0px !important;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto;
+}
+
+body {
+  font-family: 微软雅黑;
+  height: 100%;
+  background-color: #eeeeee !important;
+}
+
+hr {
+  background-color: #aaaaaa;
+  height: 2px;
+}
+
+td,th {
+  border-top: 0px !important;
+}
+
+textarea {
+  resize: none;
+}
+
+html {
+  height: 100%;
+}

@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css3 圆内环动画 | Yedeying&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="某一天, 在网上看到这幅图, 兴趣袭来仔细看, 发现有以下几个特点
+
+八个点一直在做直线运动
+每个点并非匀速运动
+每个点永远处于一个假想内环圆的圆边上  
+
+于是就想到去codepen做一个这东西的css版, 来锻炼下自已捉急的CSS水平
+首先, 建立html结构这个很简单, 不过为了这个图的每个数量可控性, 这里用jade来写outer类是大圆, inner类是小圆1-num=(8)&amp;#10;.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css3 圆内环动画">
+<meta property="og:url" content="http://yedeying999.github.io/2014/09/02/css3-yuan-nei-huan-dong-hua/index.html">
+<meta property="og:site_name" content="Yedeying's blog">
+<meta property="og:description" content="某一天, 在网上看到这幅图, 兴趣袭来仔细看, 发现有以下几个特点
+
+八个点一直在做直线运动
+每个点并非匀速运动
+每个点永远处于一个假想内环圆的圆边上  
+
+于是就想到去codepen做一个这东西的css版, 来锻炼下自已捉急的CSS水平
+首先, 建立html结构这个很简单, 不过为了这个图的每个数量可控性, 这里用jade来写outer类是大圆, inner类是小圆1-num=(8)&amp;#10;.">
+<meta property="og:image" content="http://yedeying999.github.io/images/201409021.gif">
+<meta property="og:updated_time" content="2015-06-13T19:13:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css3 圆内环动画">
+<meta name="twitter:description" content="某一天, 在网上看到这幅图, 兴趣袭来仔细看, 发现有以下几个特点
+
+八个点一直在做直线运动
+每个点并非匀速运动
+每个点永远处于一个假想内环圆的圆边上  
+
+于是就想到去codepen做一个这东西的css版, 来锻炼下自已捉急的CSS水平
+首先, 建立html结构这个很简单, 不过为了这个图的每个数量可控性, 这里用jade来写outer类是大圆, inner类是小圆1-num=(8)&amp;#10;.">
+  
+    <link rel="alternative" href="/atom.xml" title="Yedeying&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Yedeying&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yedeying999.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-css3-yuan-nei-huan-dong-hua" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/02/css3-yuan-nei-huan-dong-hua/" class="article-date">
+  <time datetime="2014-09-02T05:32:00.000Z" itemprop="datePublished">2014-09-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css3 圆内环动画
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<p>某一天, 在网上看到这幅图, 兴趣袭来<br><img src="/images/201409021.gif" alt="circle animation"><br>仔细看, 发现有以下几个特点</p>
+<ul>
+<li>八个点一直在做直线运动</li>
+<li>每个点并非匀速运动</li>
+<li>每个点永远处于一个假想内环圆的圆边上  </li>
+</ul>
+<p>于是就想到去codepen做一个这东西的css版, 来锻炼下自已捉急的CSS水平</p>
+<h3 id="首先,_建立html结构">首先, 建立html结构</h3><p>这个很简单, 不过为了这个图的每个数量可控性, 这里用jade来写<br>outer类是大圆, inner类是小圆<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-num=(8)&#10;.page-outer&#10;  while num--&#10;    .page-inner</span><br></pre></td></tr></table></figure></p>
+<h3 id="其次,_给结构赋予样式">其次, 给结构赋予样式</h3><p>这一步, 要给大圆加上半径, 宽高, 背景各种, 小圆用absolute在大圆内定位, 它们的半径就用<code>$R</code>和<code>$r</code>来表示<br>最初将小圆定位在大圆的中心<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$R: 200px;&#10;$r: 25px;&#10;.page-outer &#123;&#10;  background: red;&#10;  position: relative;&#10;  width: $R * 2;&#10;  height: $R * 2;&#10;  border-radius: $R;&#10;  .page-inner &#123;&#10;    position: absolute;&#10;    left: $R;&#10;    top: $R;&#10;    background: #fff;&#10;    width: $r * 2;&#10;    height: $r * 2;&#10;    margin-left: $r * -1;&#10;    margin-top: $r * -1;&#10;    border-radius: $r;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<!-- more -->
+<p>然后就得到了它大概的样子  </p>
+<p><div class="page-outer"><style>.page-outer{background:red;position:relative;width:400px;height:400px;border-radius:200px;}.page-outer .page-inner{position:absolute;left:200px;top:200px;background:#fff;width:50px;height:50px;margin-left:-25px;margin-top:-25px;border-radius:25px;}</style><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div><div class="page-inner"></div></div></p>
+<h3 id="接着,_添加动画">接着, 添加动画</h3><p>添加动画要注意很多细节:  </p>
+<ol>
+<li>每个点的初始位置<br>这里可以把对应数量的圆平均分布在一个半圆内, 不过注意这个半圆弧只有一个端点上有圆<br>计算出它们的极角, 再利用sin cos以及圆心, 可以求得它们的left, top值  </li>
+<li>每个点的运动延迟时间<br>观察原图, 或者自己画一下分析图, 发现当内圆环绕一圈时, 一个小点会完成一次来回, 也就可以认为一次来或回的时间, 等于每个球的延迟时间 * 数量, 也就可以求得了  </li>
+<li>每个点的运动速度变化<br>这是相对难的一部分, 自己从圆环绕这个动作研究了一下每个小圆的运动轨迹, 发现它的速度变化和三角函数有着很大的联系, 但CSS提供的是三次贝塞尔曲线函数, 所以退了一步找到一个相似的时间函数  </li>
+</ol>
+<p>最终结果如下:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$R: 200px;&#10;$r: 2px;&#10;$speed: 1s;&#10;$num: 64;&#10;$radius: $R - $r;&#10;$i: $num;&#10;@while $i &#62; 0 &#123;&#10;  @keyframes move#&#123;$i&#125; &#123;&#10;    $angle: ($i - 1) * 180 / $num;&#10;    from &#123;&#10;      left: $R - $radius * sin($angle * pi() / 180);&#10;      top: $R - $radius * cos($angle * pi() / 180);&#10;    &#125; to &#123;&#10;      left: $R + $radius * sin($angle * pi() / 180);&#10;      top: $R + $radius * cos($angle * pi() / 180);&#10;    &#125;&#10;  &#125;&#10;  $i: $i - 1;&#10;&#125;&#10;.page-outer &#123;&#10;  background: red;&#10;  position: relative;&#10;  width: $R * 2;&#10;  height: $R * 2;&#10;  border-radius: $R;&#10;  .page-inner &#123;&#10;    position: absolute;&#10;    left: $R;&#10;    top: $R;&#10;    background: #fff;&#10;    width: $r * 2;&#10;    height: $r * 2;&#10;    margin-left: $r * -1;&#10;    margin-top: $r * -1;&#10;    border-radius: $r;&#10;    animation-duration: $speed;&#10;    animation-iteration-count: infinite;&#10;    animation-direction: alternate;&#10;    animation-timing-function: cubic-bezier(0.4,0,0.6,1);&#10;    $i: $num;&#10;    @while $i &#62; 0 &#123;&#10;      &#38;:nth-of-type(#&#123;$i&#125;) &#123;&#10;        animation-delay: $speed / $num * ($i - 1);&#10;        animation-name: move#&#123;$i&#125;;&#10;      &#125;&#10;      $i: $i - 1;&#10;    &#125;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为增强效果, 我把数量由8改成了64, 然后更加赞叹了, 竟然是由直线运动组成的</p>
+<p>DEMO:<br><iframe id="cp_embed_hjHkb" src="//codepen.io/yedeying999/embed/hjHkb?height=420&theme-id=result&slug-hash=hjHkb&default-tab=7961" scrolling="no" frameborder="0" height="420" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2014/09/02/css3-yuan-nei-huan-dong-hua/" data-id="ciaxxtgfi002kjoef2oh4yr8w" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/">sass</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/09/11/messagebar-a-plugin-for-alerting-info/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          messagebar: a plugin for alerting info
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/27/javascript-cross-origin-studying/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">javascript 跨域学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標簽</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/animation/">animation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio/">audio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-origin/">cross-origin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/">csv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/editor/">editor</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/install/">install</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rcp/">rcp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xampp/">xampp</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標簽雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/animation/" style="font-size: 12px;">animation</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/canvas/" style="font-size: 12px;">canvas</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cross-origin/" style="font-size: 10px;">cross-origin</a> <a href="/tags/css/" style="font-size: 18px;">css</a> <a href="/tags/css3/" style="font-size: 14px;">css3</a> <a href="/tags/csv/" style="font-size: 10px;">csv</a> <a href="/tags/editor/" style="font-size: 12px;">editor</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/html/" style="font-size: 16px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/install/" style="font-size: 10px;">install</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/rcp/" style="font-size: 10px;">rcp</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/sass/" style="font-size: 12px;">sass</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tools/" style="font-size: 12px;">tools</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/xampp/" style="font-size: 10px;">xampp</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">歸檔</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/05/css3圆自旋动画/">css3圆自旋动画</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/02/自实现2048游戏/">自实现2048游戏</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/11/messagebar-a-plugin-for-alerting-info/">messagebar: a plugin for alerting info</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/02/css3-yuan-nei-huan-dong-hua/">css3 圆内环动画</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/27/javascript-cross-origin-studying/">javascript 跨域学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情鏈接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Yedeying<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>

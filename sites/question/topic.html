@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>深大问答平台</title>
+		<meta charset="utf-8">
+		<link href="./css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="./css/main_style.css" rel="stylesheet" media="screen">
+		<link href="./css/font-awesome.css" rel="stylesheet">
+		<link href="./css/grumble.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="wrapper">
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+			<div class="nav-div">
+			<a class="navbar-brand" href="./questions.html">SZU Q&amp;A PLATFORM</a>
+			<ul class="nav navbar-nav">
+				<li>
+					<div class="input-group div-nav-search">
+						<input type="text" class="input-search form-control" placeholder="搜索问题">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default btn-nav-search"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown nav-person">
+					<a href="javascript:void(0)" class="user-dropdown dropdown-toggle" data-toggle="dropdown">admin <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="./person.html">
+							<span class="glyphicon glyphicon-user"></span>
+							<span>个人资料</span>
+						</a></li>
+						<li><a class="btn-logout" href="javascript:void(0)">
+							<span class="glyphicon glyphicon-off"></span>
+							<span>注销</span>
+						</a></li>
+						<li><a class="btn-exit" href="javascript:void(0)">
+							<span class="glyphicon glyphicon-remove"></span>
+							<span>退出平台</span>
+						</a></li>
+					</ul>
+				</li>
+			</ul>
+			</div>
+		</nav>
+		<div class="container main">
+			<div class="row">
+				<div class="col-md-4">
+					<button type="button" data-toggle="modal" data-target="#askQuestion" class="btn btn-danger btn-lg btn-block btn-ask">我要提问</button>
+					<div class="list-group nav-jump">
+						<a href="javascript:void(0)" valuel="1" value="questions" class="list-noborder list-group-item">所有问题</a>
+						<a href="javascript:void(0)" valuel="2" value="topic" class="list-noborder list-group-item active">话题广场</a>
+						<a href="javascript:void(0)" valuel="3" value="ask" class="list-noborder list-group-item">我的提问</a>
+						<a href="javascript:void(0)" valuel="4" value="answer" class="list-noborder list-group-item">我的回答</a>
+						<a href="javascript:void(0)" valuel="5" value="related" class="list-noborder list-group-item">我的动态</a>
+					</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading">用户积分排行<button class="pull-right btn btn-default btn-sm" style="position: relative;top: -5px;" data-toggle="modal" data-target="#getHelp">说明</button></div>
+						<div class="panel-body">
+							<table class="table">
+								<tbody><tr>
+									<th>排名</th>
+									<th>用户</th>
+									<th>积分</th>
+									<th>等级</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>admin</td>
+									<td>1094</td>
+									<td>学王</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>yedeying</td>
+									<td>225</td>
+									<td>学师</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>supersea</td>
+									<td>133</td>
+									<td>学士</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>陈新潮</td>
+									<td>42</td>
+									<td>学徒</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>test</td>
+									<td>40</td>
+									<td>学徒</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>haha</td>
+									<td>37</td>
+									<td>学徒</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td>T<t< td="">
+									</t<></td><td>10</td>
+									<td>学徒</td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td>123</td>
+									<td>10</td>
+									<td>学徒</td>
+								</tr>
+								<tr>
+									<td>9</td>
+									<td>夏亦流风</td>
+									<td>10</td>
+									<td>学徒</td>
+								</tr>
+								<tr>
+									<td>10</td>
+									<td>liyawen</td>
+									<td>10</td>
+									<td>学徒</td>
+								</tr>
+							</tbody></table>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 inner">
+					<div class="row" style="margin-top: 64px;">
+						<div class="col-sm-4">
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-1.png" alt="电脑技术" class="img-circle img-info">
+									电脑技术<br>
+									<div class="div-topic-num">共8个问题</div>
+								</div>
+							</a>
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-2.png" alt="生活资讯" class="img-circle img-info">
+									生活资讯<br>
+									<div class="div-topic-num">共3个问题</div>
+								</div>
+							</a>
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-3.png" alt="学术殿堂" class="img-circle img-info">
+									学术殿堂<br>
+									<div class="div-topic-num">共2个问题</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-sm-4">
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-4.png" alt="作业专区" class="img-circle img-info">
+									作业专区<br>
+									<div class="div-topic-num">共0个问题</div>
+								</div>
+							</a>
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-5.png" alt="二手市场" class="img-circle img-info">
+									二手市场<br>
+									<div class="div-topic-num">共2个问题</div>
+								</div>
+							</a>
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-6.png" alt="失物招领" class="img-circle img-info">
+									失物招领<br>
+									<div class="div-topic-num">共3个问题</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-sm-4">
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-7.png" alt="音影视听" class="img-circle img-info">
+									音影视听<br>
+									<div class="div-topic-num">共1个问题</div>
+								</div>
+							</a>
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-8.png" alt="课程信息" class="img-circle img-info">
+									课程信息<br>
+									<div class="div-topic-num">共1个问题</div>
+								</div>
+							</a>
+							<a href="./questions.html" style="text-decoration: none; color: black">
+								<div class="well well-lg div-topic">
+									<img src="./images/cla-pic-9.png" alt="其它事宜" class="img-circle img-info">
+									其它事宜<br>
+									<div class="div-topic-num">共5个问题</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="footer center-block well well-lg">
+			Designed and built with all the love in the world by <a href="http://weibo.com/yedeying" style="text-decoration: none" target="_blank">@Ye</a><br>
+			All rights reserved @ 2013-2014.<br>
+		</div>
+		<div class="modal fade" id="askQuestion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">问题描述</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<input type="text" class="input-title form-control" placeholder="请输入你的问题">
+							<div class="for-alert-title"></div>
+						</div>
+						<div class="form-group">
+							<label for="questionContent">问题说明</label>
+							<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+								<div class="btn-group">
+									<a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="" data-original-title="字号"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+										<li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+										<li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+									</ul>
+								</div>
+								<div class="btn-group">
+									<a class="btn btn-default btn-sm" data-edit="bold" title="" data-original-title="粗体 (Ctrl+B)"><i class="icon-bold"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="italic" title="" data-original-title="斜体 (Ctrl+I)"><i class="icon-italic"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="strikethrough" title="" data-original-title="删除线"><i class="icon-strikethrough"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="underline" title="" data-original-title="下划线 (Ctrl+U)"><i class="icon-underline"></i></a>
+								</div>
+								<div class="btn-group">
+									<a class="btn btn-default btn-sm" data-edit="insertunorderedlist" title="" data-original-title="无序列表"><i class="icon-list-ul"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="insertorderedlist" title="" data-original-title="有序列表"><i class="icon-list-ol"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="outdent" title="" data-original-title="左缩进 (Shift+Tab)"><i class="icon-indent-left"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="indent" title="" data-original-title="右缩进 (Tab)"><i class="icon-indent-right"></i></a>
+								</div>
+								<div class="btn-group">
+									<a class="btn btn-default btn-sm" data-edit="justifyleft" title="" data-original-title="左对齐 (Ctrl+L)"><i class="icon-align-left"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="justifycenter" title="" data-original-title="居中 (Ctrl+E)"><i class="icon-align-center"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="justifyright" title="" data-original-title="右对齐 (Ctrl+R)"><i class="icon-align-right"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="justifyfull" title="" data-original-title="两端对齐 (Ctrl+J)"><i class="icon-align-justify"></i></a>
+								</div>
+								<div class="btn-group">
+									<a class="btn btn-default btn-sm" data-edit="undo" title="" data-original-title="撤消 (Ctrl+Z)"><i class="icon-undo"></i></a>
+									<a class="btn btn-default btn-sm" data-edit="redo" title="" data-original-title="重做 (Ctrl+Y)"><i class="icon-repeat"></i></a>
+								</div>
+								<input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="" style="display: none;">
+							</div>
+							<div id="editor" contenteditable="true"></div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="classification">选择话题</label>
+									<div class="for-alert-classification"></div>
+									<select id="classification" class="form-control select-classification">
+										<option value="0">(无)</option>
+										<option value="1">电脑技术</option>
+										<option value="2">生活资讯</option>
+										<option value="3">学术殿堂</option>
+										<option value="4">作业专区</option>
+										<option value="5">二手市场</option>
+										<option value="6">失物招领</option>
+										<option value="7">音影视听</option>
+										<option value="8">课程信息</option>
+										<option value="9">其它事宜</option>
+									</select>
+								</div>
+								<div class="col-sm-6">
+									<label for="reward" style="margin-bottom: 10px;">选择悬赏分</label>
+									<select id="reward" class="form-control select-reward">
+										<option value="0">0</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="30">30</option>
+										<option value="40">40</option>
+										<option value="50">50</option>
+										<option value="60">60</option>
+										<option value="70">70</option>
+										<option value="80">80</option>
+										<option value="90">90</option>
+										<option value="100">100</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn-finish-ask btn btn-primary">提问</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="getHelp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">等级说明表</h4>
+					</div>
+					<div class="modal-body">
+					<div style="margin-left: auto;margin-right: auto;width: 80%">
+						<table class="table table-bordered table-hover">
+							<tbody><tr>
+								<th>等级</th>
+								<th>称号</th>
+								<th>积分要求</th>
+							</tr>
+							<tr class="active">
+								<td>1</td>
+								<td>学徒</td>
+								<td>0</td>
+							</tr>
+							<tr class="success">
+								<td>2</td>
+								<td>学者</td>
+								<td>50</td>
+							</tr>
+							<tr class="warning">
+								<td>3</td>
+								<td>学士</td>
+								<td>100</td>
+							</tr>
+							<tr class="danger">
+								<td>4</td>
+								<td>学师</td>
+								<td>200</td>
+							</tr>
+							<tr class="info">
+								<td>5</td>
+								<td>学霸</td>
+								<td>500</td>
+							</tr>
+							<tr class="active">
+								<td>6</td>
+								<td>学王</td>
+								<td>1000</td>
+							</tr>
+							<tr class="success">
+								<td>7</td>
+								<td>学宗</td>
+								<td>2000</td>
+							</tr>
+							<tr class="warning">
+								<td>8</td>
+								<td>学尊</td>
+								<td>5000</td>
+							</tr>
+							<tr class="danger">
+								<td>9</td>
+								<td>学皇</td>
+								<td>10000</td>
+							</tr>
+							<tr class="info">
+								<td>10</td>
+								<td>学圣</td>
+								<td>100000</td>
+							</tr>
+						</tbody></table>
+					</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">我知道了</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/bootstrap-wysiwyg.js"></script>
+	<script src="./js/jquery.hotkeys.js"></script>
+	<script src="./js/editor.js"></script>
+	<script src="./js/Bubble.js"></script>
+	<script src="./js/jquery.grumble.min.js"></script>
+	<script src="./js/main_script.js"></script>
+	<script>var nickname='admin';</script>
+</body></html>

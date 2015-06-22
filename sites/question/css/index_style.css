@@ -1,0 +1,167 @@
+.alert-inner {
+  position: relative;
+  display: none;
+}
+
+.alert-login {
+  display: none;
+  margin: 0px !important;
+  margin-top: 20px !important;
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+}
+
+.alert-min {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.alert-mini {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  margin-left: -20px !important;
+  margin-bottom: -2px !important;
+}
+
+.btn-login {
+  width: 88%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.btn-regi {
+  width: 88%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.btn-return-login {
+  margin-right: 0px;
+}
+
+.btn-return-regi {
+  margin-right: 0px;
+}
+
+.carousel-img {
+  width: 1439px !important;
+  height: 420px !important;
+}
+
+.div-carousel {
+  height: 420px;
+  position: absolute;
+}
+
+.div-carousel {
+  width: 100%;
+}
+
+.div-inner {
+  height: 420px;
+  margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 80px !important;
+}
+
+.div-input-no {
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+
+.div-input-psd {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.footer {
+  position: fixed;
+  clear: both;
+  width: 100%;
+  padding: 20px;
+  bottom: 0px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.img-packer {
+  height: 420px !important;
+}
+
+.input-sex {
+  margin-bottom: 5px;
+}
+
+.item {
+  height: 420px !important;
+}
+
+.left-carousel-btn {
+  float: left !important;
+}
+
+.login-box {
+  margin: auto;
+  width: 280px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 340px;
+  color: white;
+  font-size: 16px;
+  background-color: rgba(55,55,55,0.6);
+}
+
+.login-inner {
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+}
+
+.login-title {
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+}
+
+.login-title-text {
+  position: relative;
+  left: 10px;
+  padding: 6px;
+}
+
+.nav-div {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.register-box {
+  display: none;
+  margin: auto;
+  width: 280px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 340px;
+  color: white;
+  font-size: 16px;
+  background-color: rgba(55,55,55,0.6);
+}
+
+.right-carousel-btn {
+  float: right !important;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto;
+}
+
+body {
+  font-family: 微软雅黑;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}

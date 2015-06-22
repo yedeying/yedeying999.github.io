@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>自实现2048游戏 | Yedeying&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Yedeying’s 2048
+yedeying’s 2048 game
+
+Github repoPlay Online
+前言2048是什么游戏就不说了, 这个项目是挺久前已经创建了。而创建它的动力, 就是想自己来实现一遍这个经典的游戏。
+记得当初创建时, 那晚也是通宵了, 算是实现了它的基本功能, 但是BUG一定不会少。就这样过了好久, 一直没动它。有时想动时, 看到以前自己写的那么烂的代码,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自实现2048游戏">
+<meta property="og:url" content="http://yedeying999.github.io/2015/02/02/自实现2048游戏/index.html">
+<meta property="og:site_name" content="Yedeying's blog">
+<meta property="og:description" content="Yedeying’s 2048
+yedeying’s 2048 game
+
+Github repoPlay Online
+前言2048是什么游戏就不说了, 这个项目是挺久前已经创建了。而创建它的动力, 就是想自己来实现一遍这个经典的游戏。
+记得当初创建时, 那晚也是通宵了, 算是实现了它的基本功能, 但是BUG一定不会少。就这样过了好久, 一直没动它。有时想动时, 看到以前自己写的那么烂的代码,">
+<meta property="og:updated_time" content="2015-06-13T19:13:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自实现2048游戏">
+<meta name="twitter:description" content="Yedeying’s 2048
+yedeying’s 2048 game
+
+Github repoPlay Online
+前言2048是什么游戏就不说了, 这个项目是挺久前已经创建了。而创建它的动力, 就是想自己来实现一遍这个经典的游戏。
+记得当初创建时, 那晚也是通宵了, 算是实现了它的基本功能, 但是BUG一定不会少。就这样过了好久, 一直没动它。有时想动时, 看到以前自己写的那么烂的代码,">
+  
+    <link rel="alternative" href="/atom.xml" title="Yedeying&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Yedeying&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yedeying999.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-自实现2048游戏" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/02/自实现2048游戏/" class="article-date">
+  <time datetime="2015-02-02T08:59:11.000Z" itemprop="datePublished">2015-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      自实现2048游戏
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h1 id="Yedeying’s_2048">Yedeying’s 2048</h1><blockquote>
+<p>yedeying’s 2048 game</p>
+</blockquote>
+<p><a href="https://github.com/yedeying999/2048" target="_blank" rel="external">Github repo</a><br><a href="/sites/2048">Play Online</a></p>
+<h2 id="前言">前言</h2><p>2048是什么游戏就不说了, 这个项目是挺久前已经创建了。而创建它的动力, 就是想自己来实现一遍这个经典的游戏。</p>
+<p>记得当初创建时, 那晚也是通宵了, 算是实现了它的基本功能, 但是BUG一定不会少。就这样过了好久, 一直没动它。有时想动时, 看到以前自己写的那么烂的代码, 又无从下手了。所以, 架构真的很重要=.=。</p>
+<p>直到前几天, 决定重新把它给实现一遍。把之前的各种垃圾写法给扔掉(各种各样的全局函数, 作用域不鲜明等), 重新想了一遍这个应该怎么组织(具体思路看下面), 结果, 就出来了, 写个博文纪念下。</p>
+<h2 id="特点">特点</h2><p>主体分成两大部分, 一个Model类, 一个Game类(就是View类, 取名太乱不要嫌弃8.8), 还有一个调用的入口</p>
+<h3 id="Model类">Model类</h3><p>Model类提供了2048的模型及数据级的操作。</p>
+<h4 id="属性">属性</h4><p>主要数据属性是两个多维数组, 一个是邻接矩阵dataRect, 一个是数据表dataTable</p>
+<h5 id="dataRect">dataRect</h5><p>每个坐标都可以在dataRect里取到一个对象, 这个对象包含了该格的值(-1为空)和对应数据表的索引(-1为空)</p>
+<h5 id="dataTable">dataTable</h5><p>DataTable中只能通过id来获取其中某一项, 而每一项是一个对象, 包含格子坐标和值。</p>
+<p>而且有个特点：每一时刻, 每个有值的格子都会对应着唯一一个数据表项。</p>
+<!-- more -->
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dataRect[x][y] = &#123;</span><br><span class="line">  id: xxx,</span><br><span class="line">  val: xxx</span><br><span class="line">&#125;</span><br><span class="line">dataTable[id] = &#123;</span><br><span class="line">  x: xxx,</span><br><span class="line">  y: xxx,</span><br><span class="line">  val: xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="行为">行为</h4><p>Model类主要提供了以下行为<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">addGrid </span>       添加一个格子, 可以限定在某个方向的边沿生成, 从dataList中随机取一个值作为新值</span><br><span class="line"><span class="keyword">move </span>          移动操作, 接受四种方向</span><br><span class="line"><span class="label">show</span>           主要调试用, 往控制台输出当前的格子分布及数值</span><br></pre></td></tr></table></figure></p>
+<h4 id="参数">参数</h4><p>Model接受以下的参数, 通过对象传入<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">size</span> 大数, 默认为4</span><br><span class="line"><span class="tag">numList</span>        每次生成的数字都是从本数列中随机抽取的, 默认为<span class="attr_selector">[2, 4]</span>, 可以通过设置多个相同数字提高其出现概率, 如<span class="attr_selector">[2, 2, 2, 4]</span></span><br><span class="line"><span class="tag">createHandle</span>   当格子被创建时, 该函数会被调用, 提供对应的数据表项作为参数</span><br><span class="line"><span class="tag">moveHandle</span>     当格子移动后, 该函数会被调用, 提供对应的数据表项作为参数</span><br><span class="line"><span class="tag">delHandle</span>      当格子被删除时, 该函数会被调用, 提供对应的数据表项作为参数</span><br><span class="line"><span class="tag">finishHandle</span>   当游戏结束时, 该函数会被调用</span><br></pre></td></tr></table></figure></p>
+<h3 id="Game类">Game类</h3><p>为游戏提供展示、移动、删除、布局等功能<br>Game类主要做了以下事：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">createHandle</span>   为Model提供回调, 当生成一个格子时, 向页面添加该格子对应的html, 往dataTable添加col属性, 指向该格子对应的html元素</span><br><span class="line"><span class="keyword">moveHandle </span>    为Model提供回调, 当移动一人个格子时, 配合css的transition属性实现移动动作</span><br><span class="line"><span class="label">delHandle</span>      为Model提供回调, 当一个格子消失时, 删除页面对应的html元素</span><br><span class="line"><span class="label">finishHandle</span>   为Model提供回调, 当游戏结束时, 弹出结束框, 并去掉键盘监听</span><br><span class="line"><span class="keyword">bindEvents </span>    添加键盘事件, 提供WSAD, KJHL, ↑↓←→三种方向组合</span><br><span class="line"><span class="label">fixFontSize</span>    设置文字大小自适应, 以防因文字太大而溢出格子</span><br><span class="line"><span class="label">fixColor</span>       为每个格子添加<span class="preprocessor">data</span>-num属性, 代表其值以<span class="number">2</span>为根的对数, 配合css添加颜色样式</span><br><span class="line"><span class="label">initStyle</span>      一些动态的样式(如格子宽度等), 无法在css上写好, 故须写在js里</span><br></pre></td></tr></table></figure></p>
+<h3 id="特色功能">特色功能</h3><p>提供大小设置功能, 可让玩家体验非4*4大小的2048游戏(10*10那种不是一般人玩的= =)</p>
+<h2 id="最后">最后</h2><p>祝玩得开心^.^, 源码主要是script.js, 如有可以改进的地方可以<a href="mailto:yedeying999@gmail.com?subject=about%202048" target="_blank" rel="external">Tell me</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yedeying999.github.io/2015/02/02/自实现2048游戏/" data-id="ciaxxtgen002cjoeffde770ca" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/05/css3圆自旋动画/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          css3圆自旋动画
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/09/11/messagebar-a-plugin-for-alerting-info/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">messagebar: a plugin for alerting info</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標簽</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/animation/">animation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio/">audio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-origin/">cross-origin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/">csv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/editor/">editor</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/install/">install</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rcp/">rcp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xampp/">xampp</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標簽雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/animation/" style="font-size: 12px;">animation</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/canvas/" style="font-size: 12px;">canvas</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cross-origin/" style="font-size: 10px;">cross-origin</a> <a href="/tags/css/" style="font-size: 18px;">css</a> <a href="/tags/css3/" style="font-size: 14px;">css3</a> <a href="/tags/csv/" style="font-size: 10px;">csv</a> <a href="/tags/editor/" style="font-size: 12px;">editor</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/html/" style="font-size: 16px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/install/" style="font-size: 10px;">install</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/rcp/" style="font-size: 10px;">rcp</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/sass/" style="font-size: 12px;">sass</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tools/" style="font-size: 12px;">tools</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/xampp/" style="font-size: 10px;">xampp</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">歸檔</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/05/css3圆自旋动画/">css3圆自旋动画</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/02/自实现2048游戏/">自实现2048游戏</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/11/messagebar-a-plugin-for-alerting-info/">messagebar: a plugin for alerting info</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/02/css3-yuan-nei-huan-dong-hua/">css3 圆内环动画</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/27/javascript-cross-origin-studying/">javascript 跨域学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情鏈接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Yedeying<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>
